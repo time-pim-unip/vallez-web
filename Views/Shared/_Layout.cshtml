@@ -4,30 +4,46 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - vallezweb</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />-->
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Vallez Web</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        
+    <div class="barra">
+        <div class="esquerda">
+            <a href="#">Informações</a>
+            <a href="#">Suites</a>
+            <a href="#">Contato</a>  
+        </div>
+        <div class="centralizado">
+             <h2>Hotel Dell Vallez</h2>   
+        </div>
+        <div class="direita">
+            
+        </div>
+    </div>
+
+    <div class="img-wrapper">
+        <img src="~/imgs/hotel.png" alt="">
+    </div>
+
+    <div class="banner">
+        <div class="img-logo">
+            <img src="~/imgs/logo.png" alt="">
+        </div>
+        <div>
+            <button>Sign Up</button>
+            <button>Next</button>
+            <p>Bem vindo ao nosso Hotel, nós nos preocupamos com o bem-estar dos hóspedes, por isso prezamos por um atendimento de qualidade, <br>
+                oferecendo quartos  confortáveis com segurança e economia. Tudo para que  você  tenha uma estadia tranquila e muito agradável. <br>
+                Está localizado em um ponto estratégico da cidade, próximo as principais avenidas e rodovias,  <br>
+            com fácil acesso para feiras e eventos além de shoppings, bares e restaurantes. Venha conhecer nossos serviços!</p>
+        </div>                
+    </div>
+
+
+ 
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -36,9 +52,57 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - vallezweb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+        <section class="contatos">
+            <div>
+                <div>
+                    <h1>CONTATO</h1>
+                    <h2>Entrar em Contato</h2>
+                </div>
+                <div>
+                    <div class="dados-contato">
+                        <input type="text"/>
+                        <input type="text"/>
+                    </div>
+                    <div class="dados-contato">
+                        <input type="text"/>
+                        <input type="text"/>
+                    </div>
+
+
+                </div>
+                <div>
+                    <button>Enviar</button>
+                </div>
+            </div>
+        </section>
+            
+        <section class="redes">
+            <div>
+                <div class="notificacao-rede">
+                    <input type="text"/>
+                    <button>Enviar</button>
+                </div>
+                <div class="conteudos-rede">
+                    <div>
+                        <h1>Sobre as Redes Sociais</h1>
+                        <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
+                    </div>
+                    <div class="img-instagram">
+                        <h1>Instagram</h1>
+                        <img src="~/imgs/quartos.png" alt="">
+                    </div>
+                    <div>
+                        <h1>Redes Sociais</h1>
+                        <a href="https://www.facebook.com/HotelsDellVales" target="_blank">Facebook</a>
+                        <a href="https://www.twitter.com/HotelsDellVales" target="_blank">Twitter</a>
+                    </div>
+                    <div>
+                        <h1>Terms of Use</h1>
+                        <p>© Copyright 2022<p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
