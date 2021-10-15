@@ -9,104 +9,108 @@
 </head>
 <body>
     <header>
+
+        <div class="barra">
+            <div class="esquerda">
+                <a>Informações</a>
+                <a asp-controller="Quartos" asp-action="Index">Suites</a>
+                <a>Contato</a>
+            </div>
+            <div class="centralizado">
+                <h2>Hotel Dell Vallez</h2>
+            </div>
+            <div class="direita">
+
+            </div>
+        </div>
+
+        <div class="img-wrapper">
+            <img src="~/imgs/hotel.png" alt="">
+        </div>
         
-    <div class="barra">
-        <div class="esquerda">
-            <a href="#">Informações</a>
-            <a href="#">Suites</a>
-            <a href="#">Contato</a>  
-        </div>
-        <div class="centralizado">
-             <h2>Hotel Dell Vallez</h2>   
-        </div>
-        <div class="direita">
-            
-        </div>
-    </div>
+        <div class="banner">
+            <div class="img-logo">
+                <img src="~/imgs/logo.png" alt="">
+            </div>
+            <!--
+                <div>
 
-    <div class="img-wrapper">
-        <img src="~/imgs/hotel.png" alt="">
-    </div>
-
-    <div class="banner">
-        <div class="img-logo">
-            <img src="~/imgs/logo.png" alt="">
+                    <button>Sign Up</button>
+                    <button>Next</button>
+                    <p>Bem vindo ao nosso Hotel, nós nos preocupamos com o bem-estar dos hóspedes, por isso prezamos por um atendimento de qualidade, <br>
+                        oferecendo quartos  confortáveis com segurança e economia. Tudo para que  você  tenha uma estadia tranquila e muito agradável. <br>
+                        Está localizado em um ponto estratégico da cidade, próximo as principais avenidas e rodovias,  <br>
+                    com fácil acesso para feiras e eventos além de shoppings, bares e restaurantes. Venha conhecer nossos serviços!</p>
+                </div> 
+             >-->
         </div>
-        <div>
-            <button>Sign Up</button>
-            <button>Next</button>
-            <p>Bem vindo ao nosso Hotel, nós nos preocupamos com o bem-estar dos hóspedes, por isso prezamos por um atendimento de qualidade, <br>
-                oferecendo quartos  confortáveis com segurança e economia. Tudo para que  você  tenha uma estadia tranquila e muito agradável. <br>
-                Está localizado em um ponto estratégico da cidade, próximo as principais avenidas e rodovias,  <br>
-            com fácil acesso para feiras e eventos além de shoppings, bares e restaurantes. Venha conhecer nossos serviços!</p>
-        </div>                
-    </div>
 
 
- 
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <section class="contatos">
-            <div>
-                <div>
-                    <h1>CONTATO</h1>
-                    <h2>Entrar em Contato</h2>
-                </div>
-                <div>
-                    <div class="dados-contato">
-                        <input type="text"/>
-                        <input type="text"/>
-                    </div>
-                    <div class="dados-contato">
-                        <input type="text"/>
-                        <input type="text"/>
-                    </div>
 
 
-                </div>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted">
+            <section class="contatos">
                 <div>
-                    <button>Enviar</button>
-                </div>
-            </div>
-        </section>
-            
-        <section class="redes">
-            <div>
-                <div class="notificacao-rede">
-                    <input type="text"/>
-                    <button>Enviar</button>
-                </div>
-                <div class="conteudos-rede">
                     <div>
-                        <h1>Sobre as Redes Sociais</h1>
-                        <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
-                    </div>
-                    <div class="img-instagram">
-                        <h1>Instagram</h1>
-                        <img src="~/imgs/quartos.png" alt="">
+                        <h1>CONTATO</h1>
+                        <h2>Entrar em Contato</h2>
                     </div>
                     <div>
-                        <h1>Redes Sociais</h1>
-                        <a href="https://www.facebook.com/HotelsDellVales" target="_blank">Facebook</a>
-                        <a href="https://www.twitter.com/HotelsDellVales" target="_blank">Twitter</a>
+                        <div class="dados-contato">
+                            <input type="text" , placeholder="Seu Nome:"/>
+                            <input type="text" , placeholder="Companhia:"/>
+                        </div>
+                        <div class="dados-contato">
+                            <input type="text" , placeholder="E-mail:"/>
+                            <input type="text" , placeholder="Telefone:"/>
+                        </div>
+
+
                     </div>
                     <div>
-                        <h1>Terms of Use</h1>
-                        <p>© Copyright 2022<p>
+                        <button>Enviar</button>
                     </div>
                 </div>
-            </div>
-        </section>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
-</html>
+            </section>
+
+            <section class="redes">
+                <div>
+                    <div class="notificacao-rede">
+                        <input type="text"/>
+                        <button>Enviar</button>
+                    </div>
+                    <div class="conteudos-rede">
+                        <div>
+                            <h1>Sobre as Redes Sociais</h1>
+                            <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
+                        </div>
+                        <div class="img-instagram">
+                            <h1>Instagram</h1>
+                            <img src="~/imgs/quartos.png" alt="">
+                        </div>
+                        <div>
+                            <h1>Redes Sociais</h1>
+                            <a href="https://www.facebook.com/HotelsDellVales" target="_blank">Facebook</a>
+                            <a href="https://www.twitter.com/HotelsDellVales" target="_blank">Twitter</a>
+                        </div>
+                        <div>
+                            <h1>Terms of Use</h1>
+                            <p>© Copyright 2022<p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+    </html>
