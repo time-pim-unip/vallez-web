@@ -12,9 +12,26 @@
 
         <div class="barra">
             <div class="esquerda">
-                <a>Informações</a>
-                <a asp-controller="Quartos" asp-action="Index">Suites</a>
-                <a>Contato</a>
+                <a class="link" id="inf-link">
+                    Informações  
+                    <div id="informacao" class="">
+                        <p> 
+                            O Hotel esta funcionando diariamente todos os dias do ano. <br />
+                            Os valores do Site são variáveis e suscetíveis a possíveis promoções eventuais. <br />
+                            Agradecemos pela preferencia qualquer duvida entre em contato em nosso telefone 16 929037-8493325
+                      
+                        </p>    
+                    </div>
+                </a>
+                <a class="link" asp-controller="Quartos" asp-action="Index">Suites</a>
+                <a class="link" id="cont-link" >
+                    Contato
+                    <div id="contatos" class="">
+                        <p> 
+                           birbribririrbirib
+                        </p>    
+                    </div>
+                </a>
             </div>
             <div class="centralizado">
                 <h2>Hotel Dell Vallez</h2>
@@ -23,6 +40,7 @@
 
             </div>
         </div>
+
 
         <div class="img-wrapper">
             <img src="~/imgs/hotel.png" alt="">
@@ -44,6 +62,8 @@
                 </div> 
              >-->
         </div>
+
+        
 
 
     </header>
