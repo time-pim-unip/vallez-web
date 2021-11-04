@@ -7,6 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+using vallezweb.Source.DB;
 
 namespace vallezweb
 {
@@ -23,6 +26,10 @@ namespace vallezweb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<VallezContext>(options => {
+                options.UseNpgsql("Server=127.0.0.1;Port=5432;Database=db_vallez;User Id=vallez;Password=#vallez123@;");
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

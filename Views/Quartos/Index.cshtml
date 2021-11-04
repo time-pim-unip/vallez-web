@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<vallezweb.Source.Entidades.Quarto>;
+@{
+
     ViewData["Title"] = "Quartos";
 }
 
@@ -20,91 +22,115 @@
 
 <div>
     <section class="quartos-agendamento">
-        <div class="quartos">
-            <div class="img-quartos">
-                <h1>Master 1</h1>
-                <img src="~/imgs/hotel-cama.png" alt="">
-            </div>
-            <div class="dados-agendamento">
-                <div class="descricao-quarto">
+        @foreach (var quarto in Model)
+        {
+            var valorSemanal = (quarto.ValorDiaria * 7).ToString("C", System.Globalization.CultureInfo.CurrentCulture);
 
-                    <h1>Descrição do Quarto</h1>
-                    <p>Valor do Quarto Diario:</p>
-                    <p>Valor do Quarto Semanal:</p>
-                    <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
+            <div class="quartos">
+                <div class="img-quartos">
+                    <h1>@quarto.Descricao</h1>
+                    <img src="~/imgs/hotel-cama.png" alt="">
                 </div>
-                <button>Agendar</button>
-            </div>
-        </div>
+                <div class="dados-agendamento">
+                    <div class="descricao-quarto">
 
-
-        <div class="quartos">
-            <div class="img-quartos">
-                <h1>Master 1</h1>
-                <img src="~/imgs/hotel-cama.png" alt="">
-            </div>
-            <div class="dados-agendamento">
-                <div class="descricao-quarto">
-
-                    <h1>Descrição do Quarto</h1>
-                    <p>Valor do Quarto Diario:</p>
-                    <p>Valor do Quarto Semanal:</p>
-                    <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
+                        <h1>Descrição do Quarto</h1>
+                        <p>Valor do Quarto Diario: @quarto.ValorDiaria.ToString("C", System.Globalization.CultureInfo.CurrentCulture)</p>
+                        <p>Valor do Quarto Semanal: @Html.DisplayFor(modelItem => valorSemanal) </p>
+                        <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
+                    </div>
+                    <a >Agendar</a>
                 </div>
-                <button>Agendar</button>
             </div>
+        }
+
+        <!--
+    <div class="quartos">
+        <div class="img-quartos">
+            <h1>Master 1</h1>
+            <img src="~/imgs/hotel-cama.png" alt="">
         </div>
+        <div class="dados-agendamento">
+            <div class="descricao-quarto">
 
-        <div class="quartos">
-            <div class="img-quartos">
-                <h1>Master 1</h1>
-                <img src="~/imgs/hotel-cama.png" alt="">
+                <h1>Descrição do Quarto</h1>
+                <p>Valor do Quarto Diario:</p>
+                <p>Valor do Quarto Semanal:</p>
+                <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
             </div>
-            <div class="dados-agendamento">
-                <div class="descricao-quarto">
-
-                    <h1>Descrição do Quarto</h1>
-                    <p>Valor do Quarto Diario:</p>
-                    <p>Valor do Quarto Semanal:</p>
-                    <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
-                </div>
-                <button>Agendar</button>
-            </div>
+            <button>Agendar</button>
         </div>
+    </div>
 
-        <div class="quartos">
-            <div class="img-quartos">
-                <h1>Master 1</h1>
-                <img src="~/imgs/hotel-cama.png" alt="">
-            </div>
-            <div class="dados-agendamento">
-                <div class="descricao-quarto">
 
-                    <h1>Descrição do Quarto</h1>
-                    <p>Valor do Quarto Diario:</p>
-                    <p>Valor do Quarto Semanal:</p>
-                    <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
-                </div>
-                <button>Agendar</button>
-            </div>
+    <div class="quartos">
+        <div class="img-quartos">
+            <h1>Master 1</h1>
+            <img src="~/imgs/hotel-cama.png" alt="">
         </div>
+        <div class="dados-agendamento">
+            <div class="descricao-quarto">
 
-        <div class="quartos">
-            <div class="img-quartos">
-                <h1>Master 1</h1>
-                <img src="~/imgs/hotel-cama.png" alt="">
+                <h1>Descrição do Quarto</h1>
+                <p>Valor do Quarto Diario:</p>
+                <p>Valor do Quarto Semanal:</p>
+                <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
             </div>
-            <div class="dados-agendamento">
-                <div class="descricao-quarto">
-
-                    <h1>Descrição do Quarto</h1>
-                    <p>Valor do Quarto Diario:</p>
-                    <p>Valor do Quarto Semanal:</p>
-                    <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
-                </div>
-                <button>Agendar</button>
-            </div>
+            <button>Agendar</button>
         </div>
+    </div>
+
+    <div class="quartos">
+        <div class="img-quartos">
+            <h1>Master 1</h1>
+            <img src="~/imgs/hotel-cama.png" alt="">
+        </div>
+        <div class="dados-agendamento">
+            <div class="descricao-quarto">
+
+                <h1>Descrição do Quarto</h1>
+                <p>Valor do Quarto Diario:</p>
+                <p>Valor do Quarto Semanal:</p>
+                <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
+            </div>
+            <button>Agendar</button>
+        </div>
+    </div>
+
+    <div class="quartos">
+        <div class="img-quartos">
+            <h1>Master 1</h1>
+            <img src="~/imgs/hotel-cama.png" alt="">
+        </div>
+        <div class="dados-agendamento">
+            <div class="descricao-quarto">
+
+                <h1>Descrição do Quarto</h1>
+                <p>Valor do Quarto Diario:</p>
+                <p>Valor do Quarto Semanal:</p>
+                <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
+            </div>
+            <button>Agendar</button>
+        </div>
+    </div>
+
+    <div class="quartos">
+        <div class="img-quartos">
+            <h1>Master 1</h1>
+            <img src="~/imgs/hotel-cama.png" alt="">
+        </div>
+        <div class="dados-agendamento">
+            <div class="descricao-quarto">
+
+                <h1>Descrição do Quarto</h1>
+                <p>Valor do Quarto Diario:</p>
+                <p>Valor do Quarto Semanal:</p>
+                <p>Nosso Hotel nas Redes Sociais tem o objetivo de disponibilizar <br> promoções e novidades em quartos.<p>
+            </div>
+            <button>Agendar</button>
+        </div>
+    </div>
+    -->
     </section>
 
 </div>
