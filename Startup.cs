@@ -24,10 +24,10 @@ namespace vallezweb
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {   
             services.AddControllersWithViews();
             services.AddDbContext<VallezContext>(options => {
-                options.UseNpgsql("Server=127.0.0.1;Port=5432;Database=db_vallez;User Id=vallez;Password=#vallez123@;");
+                options.UseNpgsql(Configuration.GetConnectionString("Vallez"));
             });
 
         }
