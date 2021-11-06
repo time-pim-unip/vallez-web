@@ -12,6 +12,19 @@ namespace vallezweb.Source.DB
         public VallezContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Quarto> Quartos { get; set; }
+        public DbSet<Hospedagem> Hospedagens { get; set; }
+        public DbSet<Locacao> Locacoes { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<Hospedagem>().HasKey(x => new { x.IdLocacao, x.IdHospede });
+            //modelBuilder.Entity<Hospedagem>().HasNoKey();
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+
 
     }
 }
