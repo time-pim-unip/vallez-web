@@ -28,4 +28,23 @@ namespace vallezweb.Source.Entidades
         [Column("valor_diaria")]
         public double ValorDiaria { get; set; }
     }
+
+
+
+    [Table("pessoa")]
+    public class Pessoa
+    {
+        [Column("nome")]
+        public string Nome { get; set; }
+        [Column("rg")]
+        public string Rg { get; set; }
+        [Column("cpf")]
+        public string Cpf { get; set; }
+        [Column("celular")]
+        public string Celular { get; set; }
+
+    }
+
+
+
 }

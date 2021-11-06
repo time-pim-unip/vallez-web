@@ -34,8 +34,11 @@
                 <div class="dados-agendamento">
                     <div class="descricao-quarto">
                         <h3>Descrição</h3>
+                        <p>Camas: @quarto.QtCamas.ToString()</p>
+                        <p>Banheiros: @quarto.QtBanheiros.ToString() </p>
                         <p>Valor Diaria: @quarto.ValorDiaria.ToString("C", System.Globalization.CultureInfo.CurrentCulture)</p>
                         <p>Valor Semana: @Html.DisplayFor(modelItem => valorSemanal) </p>
+
                     </div>
                 </div>
                 <div>
