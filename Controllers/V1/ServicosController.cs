@@ -25,5 +25,15 @@ namespace vallezweb.Controllers.V1
         {
             return Ok(_context.Servicos.ToList<Servico>());
         }
+
+        [HttpPost("{id}")]
+        public IActionResult Solicitar([FromRoute] int id, [FromBody] ServicoSolicitado servicoSolicitado)
+        {
+
+            _context.ServicosSolicitados.Add(servicoSolicitado);
+            _context.SaveChanges();
+
+            return Ok(servicoSolicitado);
+        }
     }
 }

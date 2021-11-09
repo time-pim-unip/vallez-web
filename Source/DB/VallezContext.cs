@@ -16,6 +16,7 @@ namespace vallezweb.Source.DB
         public DbSet<Locacao> Locacoes { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Servico> Servicos { get; set; }
+        public DbSet<ServicoSolicitado> ServicosSolicitados { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
