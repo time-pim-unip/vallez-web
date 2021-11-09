@@ -314,7 +314,6 @@ header {
 }
 
 .quartos-agendamento {
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -565,27 +564,63 @@ text-align: center;
 
 /*AGENDAMENTO*/
 
-.agendamento{
+.agendamento {
+    background-image: url("/imgs/fundo-quarto.png");
+    background-size:100%;
+    background-color: orange;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: start;
+    position: relative;
+    justify-content: space-between;
+    background-color: #D2E3F3;
 }
 
 
-.agendamento h2 {
+.titulo-agendamento h2 {
     text-align: center;
     color: #333333;
     font-size: 40px;
+    background-color: #D2E3F3;
 }
 
 
-.dados{
+.agendamento .esquerda {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-left: 20px;
+}
+
+
+.agendamento .esquerda img {
+    width: 450px;
+    height:450px;
+    align-items: end;
+}
+
+.agendamento .esquerda h1 {
+    color: #D68F38;
+    margin: 10px 0px 10px 0px;
+}
+
+
+.agendamento .center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+}
+
+
+.agendamento .center .dados {
     width: 25.7%;
     margin: 20px 0;
 }
 
 
-.dados input {
+.agendamento .center .dados input {
     padding: 5px;
     margin-bottom: 5px;
     border: 1px solid #cecece;
@@ -593,59 +628,18 @@ text-align: center;
     width: 100%;
 }
 
-    /*.agendamento .dados-cliente {
-    width: 80%;
-    display:flex;
-    flex-direction:column;
-    justify-content: center;
-    padding: 40px 0;
-    
-}
-
-.agendamento .dados-cliente input {
-    padding: 5px;
-    margin: 0px 10px 20px 10px;
-    border-radius: 5px;
-}
 
 
 
-
-
-
-.agendamento .dados-do-agendamento {
+.agendamento .center .botao {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 40px 0;
- 
-}
-
-.agendamento .dados-do-agendamento input {
-    padding: 5px;
-    margin: 0px 0px 20px 0px;
-    border-radius: 5px;
-}
-
-    .agendamento .dados-do-agendamento p {
-        padding: 5px;
-        margin: 0px 10px 0px 10px;
-        border-radius: 5px;
-    }
-    */
-
-
-
-
-
-.agendamento .botao {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    margin: 10px 0px 0px 0px;
 }
 
 
-.agendamento .botao button {
+.agendamento .center .botao button {
     color: white;
     background-color: #1473E6;
     height: 30px;
@@ -659,9 +653,28 @@ text-align: center;
 }
 
 
-.agendamento .botao button:hover {
+.agendamento .center .botao button:hover {
     opacity: 0.9;
     color: #000;
     align-items: center;
 }
 
+
+.agendamento .direita {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding-left: 20px;
+}
+
+
+.agendamento .direita img {
+    margin: 100px 0px 0px 0px;
+    width: 400px;
+    height: 350px;
+    align-items: end;
+    padding-right: 20px;
+    border-radius: 50%;
+    border-color: #1473E6;
+}
