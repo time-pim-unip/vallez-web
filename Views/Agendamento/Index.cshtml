@@ -40,7 +40,7 @@
                     <label for="data-fim">Data de Saida: </label>
                     <input type="date" id="data-fim" name="data-fim" onchange="calculaValorAPagar()" />
 
-
+                    <p id="dias-totais" style="display:none"></p>
                     <p id="valor-final-estadia" style="display: none;"> </p>
 
 
@@ -64,15 +64,35 @@
 
         function calculaValorAPagar() {
 
-            let dataInicial = document.getElementById("data-inicial").value;
-            let dataFim = document.getElementById("data-fim").value;
+            let dataInicial = new Date(document.getElementById("data-inicial").value + "T00:00:00");
+            let dataFim = new Date(document.getElementById("data-fim").value + "T00:00:00");
+            let dataHoje = new Date();
 
-            if (dataInicial != "" && dataFim != "") {
+            if (dataInicial.getTime() <= dataHoje.getTime()) {
+                alert("Data INICIAL não pode ser menor que o dia atual !!!");
+                document.getElementById("data-inicial").value = "";
+                return;
+            }
+
+            if (dataFim.getTime() <= dataHoje.getTime()) {
+                alert("Data FIM não pode ser menor que o dia atual !!!");
+                document.getElementById("data-fim").value = "";
+                return;
+            }
+
+            if (dataFim.getTime() <= dataInicial.getTime()) {
+                alert("Data FIM não pode ser menor que data INICIAL !!");
+                document.getElementById("data-fim").value = "";
+                return;
+            }
+
+
+            if (!isNaN(dataInicial) && !isNaN(dataFim) ) {
 
                 let valorDiaria = document.getElementById("valor-diaria").dataset["valorDiaria"];
 
-                dataInicial = new Date(dataInicial);
-                dataFim = new Date(dataFim);
+                //dataInicial = new Date(dataInicial);
+                //dataFim = new Date(dataFim);
 
                 let diferenca = dataFim.getTime() - dataInicial.getTime();
                 let dias = diferenca / (1000 * 60 * 60 * 24);
@@ -83,11 +103,15 @@
                 elValorFinalDiaria.style["display"] = "block";
                 elValorFinalDiaria.innerHTML = "Valor Total: R$ " + valorTotalDiaria;
 
+
+                let elTotalDias = document.getElementById("dias-totais");
+                elTotalDias.style["display"] = "block";
+                elTotalDias.innerHTML = "Total de Dias: " + dias;
+
             }
+            
 
         }
-
-
 
     </script>
 }

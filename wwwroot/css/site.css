@@ -684,5 +684,11 @@ text-align: center;
     color: #FE7600;
     font-weight: bold;
     font-size: 22px;
-    margin: 20px 0px;
+}
+
+#dias-totais {
+    color: #333333;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 20px 0px 0px 0px;
 }
