@@ -702,3 +702,16 @@ text-align: center;
     font-size: 22px;
     margin: 20px 0px 0px 0px;
 }
+
+.agendamento .center .dados #mensagem{
+    background-color: #ffcaca;
+    padding: 10px;
+    border: 1px solid red;
+    color: red;
+    border-radius: 5px;
+    display: none;
+}
+
+.agendamento .center .dados .hidden-fields{
+    display: none;
+}
