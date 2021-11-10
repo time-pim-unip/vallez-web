@@ -89,20 +89,19 @@
 
             if (!isNaN(dataInicial) && !isNaN(dataFim) ) {
 
-                let valorDiaria = document.getElementById("valor-diaria").dataset["valorDiaria"];
+                let valorDiaria = document.getElementById("valor-diaria").dataset["valorDiaria"].replace(',', '.');
 
                 //dataInicial = new Date(dataInicial);
                 //dataFim = new Date(dataFim);
 
                 let diferenca = dataFim.getTime() - dataInicial.getTime();
                 let dias = diferenca / (1000 * 60 * 60 * 24);
-                
-                let valorTotalDiaria = valorDiaria * dias;
+
+                let valorTotalDiaria = parseFloat(valorDiaria) * dias;
 
                 let elValorFinalDiaria = document.getElementById("valor-final-estadia");
                 elValorFinalDiaria.style["display"] = "block";
-                elValorFinalDiaria.innerHTML = "Valor Total: R$ " + valorTotalDiaria;
-
+                elValorFinalDiaria.innerHTML = "Valor Total: R$ " + valorTotalDiaria.toLocaleString("pt-BR");
 
                 let elTotalDias = document.getElementById("dias-totais");
                 elTotalDias.style["display"] = "block";
