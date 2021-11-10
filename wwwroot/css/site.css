@@ -598,6 +598,7 @@ text-align: center;
     width: 450px;
     height:450px;
     align-items: end;
+    border-radius:15px;
 }
 
 .agendamento .esquerda h1 {
@@ -665,7 +666,7 @@ text-align: center;
     display: flex;
     flex-direction: row;
     height: 100%;
-    padding-left: 20px;
+    padding-right: 20px;
 }
 
 
@@ -674,7 +675,14 @@ text-align: center;
     width: 400px;
     height: 350px;
     align-items: end;
-    padding-right: 20px;
     border-radius: 50%;
     border-color: #1473E6;
+    border: 10px solid #585555;
+}
+
+#valor-final-estadia {
+    color: #FE7600;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 20px 0px;
 }

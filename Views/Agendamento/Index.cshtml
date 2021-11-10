@@ -1,53 +1,93 @@
-﻿@{
+﻿@model vallezweb.Source.Entidades.Quarto;
+
+@{
     ViewData["Title"] = "Agendamento";
+
+        var valorDiaria = Model.ValorDiaria;
+
 }
-
-
-
 
 <div class="titulo-agendamento">
     <h2>Insira os dados para efetuar o pedido de agendamento</h2>
     <div class="agendamento">
 
-        <div class="esquerda">
-            <h1>Nome Quarto</h1>
-            <img src="~/imgs/hotel-cama.png" alt="">
-        </div>
+            <div class="esquerda">
+                <h1>@Html.DisplayFor(model => model.Descricao)</h1>
+                <img src="~/imgs/hotel-cama.png" alt="">
+            </div>
+        
+            <div class="center">
+                <div class="dados dados-cliente">
+                    <h3> Dados do Cliente</h3>
+                    <p>CPF: </p>
+                    <input type="text" />
+                    <p>Nome Completo: </p>
+                    <input type="text" />
+                    <p>RG: </p>
+                    <input type="text" />
+                    <p>Celular: </p>
+                    <input type="text" />
+                </div>
 
-        <div class="center">
-            <div class="dados dados-cliente">
-                <h3> Dados do Cliente</h3>
-                <p>CPF: </p>
-                <input type="text" />
-                <p>Nome Completo: </p>
-                <input type="text" />
-                <p>RG: </p>
-                <input type="text" />
-                <p>Celular: </p>
-                <input type="text" />
+
+                <div class="dados dados-do-agendamento">
+                    <h3> Dados do Agendamento</h3>
+                    <p>Camas: @Html.DisplayFor(model => model.QtCamas)</p>
+                    <p>Banheiros: @Html.DisplayFor(model => model.QtBanheiros)</p>
+                    <p id="valor-diaria" data-algum-valor-aleatorio="birbirbirbribr" data-valor-diaria="@valorDiaria" >Valor Diaria: @valorDiaria.ToString("C", System.Globalization.CultureInfo.CurrentCulture) </p>
+                    <label for="data-inicial">Data de Entrada: </label>
+                    <input type="date" id="data-inicial" name="data-inicial" onchange="calculaValorAPagar()" />
+                    <label for="data-fim">Data de Saida: </label>
+                    <input type="date" id="data-fim" name="data-fim" onchange="calculaValorAPagar()" />
+
+
+                    <p id="valor-final-estadia" style="display: none;"> </p>
+
+
+                </div>
+
+                <div class="botao">
+                    <button>Enviar Pedido</button>
+                </div>
             </div>
 
-
-
-            <div class="dados dados-do-agendamento">
-                <h3> Dados do Agendamento</h3>
-                <p>Camas:</p>
-                <p>Banheiros:</p>
-                <p>Valor Diaria:</p>
-                <p>Data de Entrada: </p>
-                <input type="text" />
-                <p>Data de Saida: </p>
-                <input type="text" />
+            <div class="direita">
+                <img src="~/imgs/mapa.png" alt="">
             </div>
-
-            <div class="botao">
-                <button>Enviar Pedido</button>
-            </div>
+        
         </div>
-
-        <div class="direita">
-            <img src="~/imgs/mapa.png" alt="">
-        </div>
-
-    </div>
 </div>
+
+
+@section Scripts {
+    <script type="text/javascript">
+
+        function calculaValorAPagar() {
+
+            let dataInicial = document.getElementById("data-inicial").value;
+            let dataFim = document.getElementById("data-fim").value;
+
+            if (dataInicial != "" && dataFim != "") {
+
+                let valorDiaria = document.getElementById("valor-diaria").dataset["valorDiaria"];
+
+                dataInicial = new Date(dataInicial);
+                dataFim = new Date(dataFim);
+
+                let diferenca = dataFim.getTime() - dataInicial.getTime();
+                let dias = diferenca / (1000 * 60 * 60 * 24);
+                
+                let valorTotalDiaria = valorDiaria * dias;
+
+                let elValorFinalDiaria = document.getElementById("valor-final-estadia");
+                elValorFinalDiaria.style["display"] = "block";
+                elValorFinalDiaria.innerHTML = "Valor Total: R$ " + valorTotalDiaria;
+
+            }
+
+        }
+
+
+
+    </script>
+}
