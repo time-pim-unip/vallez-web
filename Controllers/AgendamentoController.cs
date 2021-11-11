@@ -18,12 +18,20 @@ namespace vallezweb.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        [Route("[controller]/{id}")]
         public IActionResult Index([FromRoute] int id)
         {
 
             Quarto quarto = _context.Quartos.FirstOrDefault(x => x.Id == id);
 
             return View(quarto);
+        }
+
+        [HttpPost]
+        public IActionResult Solicitar()
+        {
+            return Ok("Teste");
         }
     }
 }

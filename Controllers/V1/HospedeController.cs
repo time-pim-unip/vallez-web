@@ -26,8 +26,23 @@ namespace vallezweb.Controllers.V1
             this._vallezContext = vallezContext;
         }
 
-        [Route("{id}/Locacoes")]
-        public async Task<IActionResult> Index([FromRoute] int id)
+
+        [HttpGet]
+        public IActionResult ValidarCpf([FromQuery] string cpf)
+        {
+
+            var pessoa = _vallezContext.Pessoas.FirstOrDefault(p => p.Cpf == cpf);
+
+            if (pessoa == null)
+            {
+                return NoContent();
+            }
+
+            return Ok(pessoa);
+        }
+
+        [HttpGet("{id}/Locacoes")]
+        public async Task<IActionResult> Locacoes([FromRoute] int id)
         {
             var hospedagens = await _vallezContext.Hospedagens.Where(x => x.IdHospede == id).ToListAsync();
             List<Locacao> locacoes  = new List<Locacao>();

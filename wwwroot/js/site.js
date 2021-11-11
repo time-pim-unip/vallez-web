@@ -31,3 +31,12 @@ document.querySelector("#cont-link").addEventListener('click', (e) => {
     document.querySelector("#contatos").classList.toggle("is-active");
 
 });
+
+
+function habilitarLoading() {
+    document.getElementById("loading").style["display"] = 'flex';
+}
+
+function desabilitarLoading() {
+    document.getElementById("loading").style["display"] = 'none';
+}

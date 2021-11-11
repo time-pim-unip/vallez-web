@@ -8,28 +8,30 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+    <div id="loading">
+        <img src="~/imgs/loading.gif" />
+    </div>
     <header>
-
         <nav class="barra">
             <div class="esquerda">
                 <a class="link" id="inf-link">
-                    Informações  
+                    Informações
                     <div id="informacao" class="">
-                        <p> 
+                        <p>
                             O Hotel esta funcionando diariamente todos os dias do ano. <br />
                             Os valores do Site são variáveis e suscetíveis a possíveis promoções eventuais. <br />
                             Agradecemos pela preferencia qualquer duvida entre em contato em nosso telefone 16 929037-8493325
-                      
-                        </p>    
+
+                        </p>
                     </div>
                 </a>
                 <a class="link" asp-controller="Quartos" asp-action="Index">Suites</a>
-                <a class="link" id="cont-link" >
+                <a class="link" id="cont-link">
                     Contato
                     <div id="contatos" class="">
-                        <p> 
-                           birbribririrbirib
-                        </p>    
+                        <p>
+                            birbribririrbirib
+                        </p>
                     </div>
                 </a>
             </div>
@@ -40,19 +42,21 @@
 
             </div>
         </nav>
-        
+
         <div class="banner">
-            
+
             <div class="img-logo">
                 <a class="link" asp-controller="Home" asp-action="Index"><img src="~/imgs/logo.png" alt=""></a>
             </div>
-            
+
             <div class="bem-vindo">
-                <p>Bem vindo ao nosso Hotel, nós nos preocupamos com o bem-estar dos hóspedes, por isso prezamos por um atendimento de qualidade,
-                    oferecendo quartos  confortáveis com segurança e economia. Tudo para que  você  tenha uma estadia tranquila e muito agradável. 
-                    Está localizado em um ponto estratégico da cidade, próximo as principais avenidas e rodovias,  
-                    com fácil acesso para feiras e eventos além de shoppings, bares e restaurantes. Venha conhecer nossos serviços!</p>
-            </div> 
+                <p>
+                    Bem vindo ao nosso Hotel, nós nos preocupamos com o bem-estar dos hóspedes, por isso prezamos por um atendimento de qualidade,
+                    oferecendo quartos  confortáveis com segurança e economia. Tudo para que  você  tenha uma estadia tranquila e muito agradável.
+                    Está localizado em um ponto estratégico da cidade, próximo as principais avenidas e rodovias,
+                    com fácil acesso para feiras e eventos além de shoppings, bares e restaurantes. Venha conhecer nossos serviços!
+                </p>
+            </div>
 
             <div class="img-wrapper">
                 <div class="background">  </div>
@@ -76,12 +80,12 @@
                 </div>
                 <div>
                     <div class="dados-contato">
-                        <input type="text" placeholder="Seu Nome:"/>
-                        <input type="text" placeholder="Companhia:"/>
+                        <input type="text" placeholder="Seu Nome:" />
+                        <input type="text" placeholder="Companhia:" />
                     </div>
                     <div class="dados-contato">
-                        <input type="email" placeholder="E-mail:"/>
-                        <input type="tel" placeholder="Telefone:"/>
+                        <input type="email" placeholder="E-mail:" />
+                        <input type="tel" placeholder="Telefone:" />
                     </div>
 
                 </div>
@@ -94,7 +98,7 @@
         <section class="redes">
             <div>
                 <div class="notificacao-rede">
-                    <input type="text"/>
+                    <input type="text" />
                     <button>Enviar</button>
                 </div>
                 <div class="conteudos-rede">
@@ -120,6 +124,7 @@
         </section>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.mask.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
