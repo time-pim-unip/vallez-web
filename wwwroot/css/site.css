@@ -625,7 +625,7 @@ text-align: center;
 
 
 .agendamento .center .dados {
-    width: 300px;
+    width: 350px;
     margin: 20px 0;
 }
 
@@ -712,7 +712,11 @@ text-align: center;
     display: none;
 }
 
-.agendamento .center .dados .hidden-fields{
+.agendamento .center .dados #mensagem ul{
+    padding-left: 20px;
+}
+
+.agendamento .center .dados .hidden-fields {
     display: none;
 }
 
