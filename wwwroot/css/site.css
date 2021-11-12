@@ -736,3 +736,25 @@ text-align: center;
 #loading img {
     width: 100px;
 }
+
+
+
+
+
+
+
+/* SUCESSO  */
+.sucesso-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 0;
+}
+
+.sucesso-box h2 { 
+    text-align: center;
+    color: #333333;
+    margin-bottom: 20px;
+}

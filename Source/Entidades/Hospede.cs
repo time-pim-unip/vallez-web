@@ -14,7 +14,7 @@ namespace vallezweb.Source.Entidades
         [Column("id_hospede")]
         public int Id { get; set; }
         [Column("uuid_hospede")]
-        public Guid Uuid { get; set; }
+        public Guid Uuid { get; set; } = Guid.NewGuid();
         [Column("id_pessoa")]
         public int IdPessoa { get; set; }
         [Column("id_usuario")]
