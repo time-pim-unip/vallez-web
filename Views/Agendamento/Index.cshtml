@@ -189,11 +189,12 @@
                 body: JSON.stringify(dadosLocacao)
             });
 
+            const data = await request.json();
+
             if (request.status != 200) {
+                desabilitarLoading()
                 document.querySelector('.agendamento .center .dados #mensagem').style["display"] = 'block';
                 document.querySelector('.agendamento .center .dados #mensagem').innerHTML = data.erro;
-                
-                desabilitarLoading()
                 return;
             } else {
                 
