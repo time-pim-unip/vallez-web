@@ -22,7 +22,7 @@ namespace vallezweb.Source.Entidades
         [Column("dt_saida")]
         public DateTime? DataSaida {  get; set; }
         [Column("dt_checkin")]
-        public DateTime? Checkin { get; set; }
+        public DateTime? CheckIn { get; set; }
         [Column("dt_checkout")]
         public DateTime? CheckOut { get; set; }
         

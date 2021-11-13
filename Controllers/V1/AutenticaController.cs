@@ -23,7 +23,7 @@ namespace vallezweb.Controllers.V1
         }
 
         [HttpPost]
-        public IActionResult Login([FromBody] LoginIM user)
+        public IActionResult Index([FromBody] LoginIM user)
         {
 
             Usuario usuario = _context.Usuarios.FirstOrDefault(u => u.Username == user.Username && u.Senha == user.Password);
@@ -33,7 +33,11 @@ namespace vallezweb.Controllers.V1
                 return NotFound();
             }
 
-            return Ok(usuario);
+            Hospede hospede = _context.Hospedes.FirstOrDefault(h => h.IdUsuario == usuario.Id);
+
+
+            return Ok(hospede);
+
         }
 
     }

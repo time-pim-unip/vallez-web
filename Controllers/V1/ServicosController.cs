@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using vallezweb.Models.InputModels;
 using vallezweb.Source.DB;
 using vallezweb.Source.Entidades;
 
@@ -26,14 +27,21 @@ namespace vallezweb.Controllers.V1
             return Ok(_context.Servicos.ToList<Servico>());
         }
 
-        [HttpPost("{id}")]
-        public IActionResult Solicitar([FromRoute] int id, [FromBody] ServicoSolicitado servicoSolicitado)
+        [HttpPost]
+        public IActionResult Solicitar( [FromBody] SolicitarServicoIM servicoSolicitado)
         {
 
-            _context.ServicosSolicitados.Add(servicoSolicitado);
+            ServicoSolicitado solicitado = new ServicoSolicitado
+            {
+                IdServico = servicoSolicitado.IdServico,
+                IdLocacao = servicoSolicitado.IdLocacao,
+                QtdeSolicitado = servicoSolicitado.Quantidade
+            };
+
+            _context.ServicosSolicitados.Add(solicitado);
             _context.SaveChanges();
 
-            return Ok(servicoSolicitado);
+            return Ok(solicitado);
         }
     }
 }

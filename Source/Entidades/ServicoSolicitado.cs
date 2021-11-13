@@ -23,6 +23,8 @@ namespace vallezweb.Source.Entidades
         public int QtdeSolicitado { get; set; }
         [Column("notificar")]
         public bool Notificar { get; set; } = true;
+        [NotMapped]
+        public Servico Servico { get;set; }
 
     }
 }

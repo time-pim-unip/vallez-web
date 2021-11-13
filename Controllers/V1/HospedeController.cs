@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using vallezweb.Source.DB;
 using vallezweb.Source.Entidades;
+using vallezweb.Models.ViewModels;
 
 
 namespace vallezweb.Controllers.V1
@@ -47,22 +48,37 @@ namespace vallezweb.Controllers.V1
             var hospedagens = await _vallezContext.Hospedagens.Where(x => x.IdHospede == id).ToListAsync();
             List<Locacao> locacoes  = new List<Locacao>();
 
+            LocacoesVM locacoesVm = new LocacoesVM();
+
             foreach (Hospedagem h in hospedagens)
             {
-                var locacao = await _vallezContext.Locacoes.Where(l => l.Id == h.IdLocacao && l.Checkin != null && l.CheckOut == null ).FirstOrDefaultAsync();
+                // var locacao = await _vallezContext.Locacoes.Where(l => l.Id == h.IdLocacao && l.Checkin != null && l.CheckOut == null ).FirstOrDefaultAsync();
 
-                if (locacao != null)
+                var locacao = await _vallezContext.Locacoes.FirstOrDefaultAsync(l => l.Id == h.IdLocacao);
+
+                if (locacao.DataEntrada >= System.DateTime.Now && locacao.CheckIn == null && locacao.CheckOut == null) {
+                    locacoesVm.LocacoesFuturas.Add(locacao);
+
+                } 
+                else if(locacao.CheckIn != null && locacao.CheckOut == null) 
                 {
-                    locacoes.Add(locacao);
+                    locacoesVm.LocacoesAtivas.Add(locacao);
+                }
+                else if (locacao.DataEntrada.Value.ToString("dd/MM/yyyy") == System.DateTime.Now.ToString("dd/MM/yyyy"))
+                {
+                    locacoesVm.LocacoesHoje.Add(locacao);
                 }
             }
 
-            if (locacoes.Count() > 0)
-            {
-                locacoes = locacoes.OrderByDescending(l => l.Id).ToList();
-            }
+            locacoesVm.LocacoesAtivas.OrderBy(l => l.DataEntrada);
+            locacoesVm.LocacoesFuturas.OrderBy(l => l.DataEntrada);
 
-            return Ok(locacoes);   
+            // if (locacoes.Count() > 0)
+            // {
+            //     locacoes = locacoes.OrderByDescending(l => l.Id).ToList();
+            // }
+
+            return Ok(locacoesVm);   
         }
     }
 }
