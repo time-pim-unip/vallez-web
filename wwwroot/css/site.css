@@ -181,8 +181,6 @@ header {
     font-size: 20px;
     text-align:center;
     width: 70%;
-    
-    /*animation: moveBanner 1.4s forwards;*/
 }
 
 
@@ -270,7 +268,7 @@ header {
 
 
 
-/*BARRA DE QUARTOS*/
+/*QUARTOS*/
 
 .barra-quartos {
     background-color: #F0E4D6;
@@ -282,16 +280,6 @@ header {
     padding: 2px 10px;
 }
 
-.barra-quartos .esquerda button {
-    color: #D68F38;
-    font-size: 18px;
-    background-color: white;
-    border-color: white;
-    height: 50px;
-    width: 250px;
-    cursor: pointer;
-}
-
 .barra-quartos .direita{
     display:flex;
     flex-direction: row;
@@ -300,17 +288,21 @@ header {
 
 .barra-quartos .direita input {
     padding-bottom: 20px;
-    width: 150px;
+    width: 300px;
     height: 50px;
     margin-left: 10px;
+    font-size: 18px;
+}
 
+.barra-quartos .direita input::placeholder {
+    font-size: 18px;
+    color: #464444;
 }
 
 .barra-quartos .direita p {
     margin-right: 20px;
     color: #D68F38;
     font-size: 25px;
-
 }
 
 .quartos-agendamento {
@@ -339,30 +331,7 @@ header {
 .quartos:hover{
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, .1);
 }
-/*
-.quartos-agendamento .esquerda button {
-    color: #D68F38;
-    font-size: 18px;
-    background-color: white;
-    border-color: white;
-    height: 50px;
-    width: 250px;
-    cursor: pointer;
-}
 
-.quartos-agendamento .direita {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.quartos-agendamento .direita p {
-    margin-right: 20px;
-    color: #D68F38;
-    font-size: 25px;
-}
-
-*/
 .quartos-agendamento .quartos > div {
     margin-bottom: 10px;
 }
