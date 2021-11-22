@@ -7,15 +7,10 @@
 
 
 <div class="barra-quartos">
-    <div class="esquerda">
-        <button>Suite Master</button>
-        <button>Standards</button>
-        <button>Simples</button>
-    </div>
     <div class="direita">
-        <p>Preço:</p>
-        <input type="text" , placeholder="Min:" />
-        <input type="text" , placeholder="Max:" />
+        <p>Filrar Preços Diários:</p>
+        <input type="text" , placeholder="Min:" id="filtrar-valoresmin" />
+        <input type="text" , placeholder="Max:" id="filtrar-valoresmax" />
 
     </div>
 </div>
@@ -32,22 +27,82 @@
                     <h1>@quarto.Descricao</h1>
                 </div>
                 <div class="dados-agendamento">
-                    <div class="descricao-quarto">
+                    <div class="quartosdesc">
                         <h3>Descrição</h3>
                         <p>Camas: @quarto.QtCamas.ToString()</p>
-                        <p>Banheiros: @quarto.QtBanheiros.ToString() </p>
-                        <p>Valor Diaria: @quarto.ValorDiaria.ToString("C", System.Globalization.CultureInfo.CurrentCulture)</p>
+                        <p>Banheiros: @quarto.QtBanheiros.ToString()</p>
+                        <p class="valuediarias">Valor Diaria: @quarto.ValorDiaria.ToString("C", System.Globalization.CultureInfo.CurrentCulture)</p>
                         <p>Valor Semana: @Html.DisplayFor(modelItem => valorSemanal) </p>
 
                     </div>
                 </div>
                 <div>
 
-                    <a class="link" asp-controller="Agendamento" asp-action="Index" asp-route-id="@quarto.Id" >Visualizar</a>
+                    <a class="link" asp-controller="Agendamento" asp-action="Index" asp-route-id="@quarto.Id">Visualizar</a>
                 </div>
             </div>
         }
     </section>
+
+
+
+
+    @section Scripts {
+        <script type="text/javascript">
+
+            var valorFiltro = document.querySelector("#filtrar-valoresmin");
+
+            valorFiltro.addEventListener("input", function () {
+                var quartostab = document.querySelectorAll(".quartos");
+
+                if (this.value.length > 0) {
+                    for (var i = 0; i < quartostab.length; i++) {
+                        var quartosdesc = quartostab[i];
+                        var davalor = quartosdesc.querySelector(".valuediarias")
+                        var valor = davalor.textContent.split(" ")[3];
+                        if (parseFloat(valor) >= parseFloat(this.value)) {
+                            quartosdesc.classList.remove("invisivel");
+                        } else {
+                            quartosdesc.classList.add("invisivel")
+                        }
+                    }
+                } else {
+                    for (var i = 0; i < quartostab.length; i++) {
+                        var quartosdesc = quartostab[i];
+                        quartosdesc.classList.remove("invisivel");
+                    }                         
+                }  
+            });
+
+            var valorFiltro = document.querySelector("#filtrar-valoresmax");
+
+            valorFiltro.addEventListener("input", function () {
+                var quartostab = document.querySelectorAll(".quartos");
+
+                if (this.value.length > 0) {
+                    for (var i = 0; i < quartostab.length; i++) {
+                        var quartosdesc = quartostab[i];
+                        var davalor = quartosdesc.querySelector(".valuediarias")
+                        var valor = davalor.textContent.split(" ")[3];
+                        if (parseFloat(valor) <= parseFloat(this.value)) {
+                            quartosdesc.classList.remove("invisivel");
+                        } else {
+                            quartosdesc.classList.add("invisivel")
+                        }
+                    }
+                } else {
+                    for (var i = 0; i < quartostab.length; i++) {
+                        var quartosdesc = quartostab[i];
+                        quartosdesc.classList.remove("invisivel");
+                    }
+                }
+            });
+
+
+
+
+        </script>
+}
 
 </div>
 
