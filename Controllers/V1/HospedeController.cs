@@ -64,7 +64,7 @@ namespace vallezweb.Controllers.V1
                 {
                     locacoesVm.LocacoesAtivas.Add(locacao);
                 }
-                else if (locacao.DataEntrada.Value.ToString("dd/MM/yyyy") == System.DateTime.Now.ToString("dd/MM/yyyy"))
+                else if (locacao.DataEntrada.Value.ToString("dd/MM/yyyy") == System.DateTime.Now.ToString("dd/MM/yyyy") && locacao.CheckIn == null)
                 {
                     locacoesVm.LocacoesHoje.Add(locacao);
                 }

@@ -66,5 +66,40 @@ namespace vallezweb.Controllers.V1
 
             return Ok(locacaoVM);
         }
+
+        [HttpDelete("{id}")]
+        async public Task<IActionResult> CancelarLocacao(int id)
+        {
+            Locacao locacao = await _vallezContext.Locacoes.Where(l => l.Id == id).FirstOrDefaultAsync();
+
+            if (locacao == null) {
+                return NotFound();
+            }
+
+            if (locacao.CheckIn != null) {
+                return BadRequest();
+            }
+
+
+            var disponibilidades = await _vallezContext.Disponibilidades.Where(d => d.IdLocacao == locacao.Id).ToListAsync();
+            foreach (Disponibilidade d in disponibilidades)
+            {   
+                d.Disponivel = true;
+                d.IdLocacao = null;
+            }
+
+            await _vallezContext.SaveChangesAsync();
+
+            var hospedagens = await _vallezContext.Hospedagens.Where(h => h.IdLocacao == locacao.Id).ToListAsync();
+            _vallezContext.RemoveRange(hospedagens);
+            await _vallezContext.SaveChangesAsync();
+
+            _vallezContext.Remove(locacao);
+            await _vallezContext.SaveChangesAsync();
+            
+            return Ok(locacao);
+        }
+
+
     }
 }
