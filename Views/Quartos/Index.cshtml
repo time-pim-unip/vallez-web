@@ -84,6 +84,7 @@
                         var quartosdesc = quartostab[i];
                         var davalor = quartosdesc.querySelector(".valuediarias")
                         var valor = davalor.textContent.split(" ")[3];
+
                         if (parseFloat(valor) <= parseFloat(this.value)) {
                             quartosdesc.classList.remove("invisivel");
                         } else {

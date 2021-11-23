@@ -20,6 +20,7 @@ namespace vallezweb.Source.DB
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Hospede> Hospedes { get; set; }
         public DbSet<Disponibilidade> Disponibilidades { get; set; }
+        public DbSet<Faturamento> Faturamentos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
