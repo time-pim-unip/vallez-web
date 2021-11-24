@@ -21,8 +21,6 @@ namespace vallezweb.Source.Entidades
         public DateTime DataSolicitacao { get; set; } = DateTime.Now;
         [Column("qtde_solicitacao")]
         public int QtdeSolicitado { get; set; }
-        [Column("notificar")]
-        public bool Notificar { get; set; } = true;
         [NotMapped]
         public Servico Servico { get;set; }
 
