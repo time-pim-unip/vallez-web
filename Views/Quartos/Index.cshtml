@@ -12,6 +12,8 @@
         <input type="text" , placeholder="Min:" id="filtrar-valoresmin" />
         <input type="text" , placeholder="Max:" id="filtrar-valoresmax" />
 
+        <button id="filtrar-quartos">Filtrar</button>
+
     </div>
 </div>
 
@@ -50,57 +52,32 @@
     @section Scripts {
         <script type="text/javascript">
 
-            var valorFiltro = document.querySelector("#filtrar-valoresmin");
-
-            valorFiltro.addEventListener("input", function () {
+            document.querySelector("#filtrar-quartos").addEventListener('click', () => {
                 var quartostab = document.querySelectorAll(".quartos");
 
-                if (this.value.length > 0) {
+                let minValue = document.querySelector("#filtrar-valoresmin").value || 0;
+                let maxValue = document.querySelector("#filtrar-valoresmax").value || 0;
+
+                if (minValue == 0 && maxValue == 0) {
                     for (var i = 0; i < quartostab.length; i++) {
                         var quartosdesc = quartostab[i];
-                        var davalor = quartosdesc.querySelector(".valuediarias")
-                        var valor = davalor.textContent.split(" ")[3];
-                        if (parseFloat(valor) >= parseFloat(this.value)) {
-                            quartosdesc.classList.remove("invisivel");
-                        } else {
-                            quartosdesc.classList.add("invisivel")
-                        }
+                        quartosdesc.classList.remove("invisivel");
                     }
                 } else {
                     for (var i = 0; i < quartostab.length; i++) {
                         var quartosdesc = quartostab[i];
-                        quartosdesc.classList.remove("invisivel");
-                    }                         
-                }  
-            });
-
-            var valorFiltro = document.querySelector("#filtrar-valoresmax");
-
-            valorFiltro.addEventListener("input", function () {
-                var quartostab = document.querySelectorAll(".quartos");
-
-                if (this.value.length > 0) {
-                    for (var i = 0; i < quartostab.length; i++) {
-                        var quartosdesc = quartostab[i];
                         var davalor = quartosdesc.querySelector(".valuediarias")
                         var valor = davalor.textContent.split(" ")[3];
-
-                        if (parseFloat(valor) <= parseFloat(this.value)) {
+                        valor = valor.replace(".", "");
+                        
+                        if (parseFloat(valor) >= parseFloat(minValue) && parseFloat(valor) <= parseFloat(maxValue)) {
                             quartosdesc.classList.remove("invisivel");
                         } else {
                             quartosdesc.classList.add("invisivel")
                         }
-                    }
-                } else {
-                    for (var i = 0; i < quartostab.length; i++) {
-                        var quartosdesc = quartostab[i];
-                        quartosdesc.classList.remove("invisivel");
                     }
                 }
             });
-
-
-
 
         </script>
 }

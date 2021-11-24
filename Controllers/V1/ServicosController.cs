@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using vallezweb.Models.InputModels;
 using vallezweb.Source.DB;
 using vallezweb.Source.Entidades;

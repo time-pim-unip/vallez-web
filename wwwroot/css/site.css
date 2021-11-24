@@ -376,6 +376,23 @@ header {
 }
 
 
+#filtrar-quartos{
+    margin: 0px 10px 0px 20px;
+    color: white;
+    background-color: #1473E6;
+    height: 30px;
+    width: 120px;
+    cursor: pointer;
+    border-radius: 5px;
+    border-color: #1473E6;
+
+}
+
+
+#filtrar-quartos:hover {
+    opacity: 0.9;
+    color: #000;
+}
 
 
 
